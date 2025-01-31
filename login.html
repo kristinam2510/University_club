@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MIT WPU University</title>
+    <style>
+      /* Reset and Basic styling */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        font-family: Arial, sans-serif;
+        height: 100%;
+        overflow: auto;
+      }
+
+      /* Full-screen white background */
+      body {
+        display: flex;
+        flex-direction: column;
+        background-color: white; /* Change to white background */
+        color: black; /* Ensure text color is visible */
+      }
+
+      /* Header styling */
+      .header-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 20px;
+        background: linear-gradient(90deg, #e7eaed, #0077e8);
+        color: white;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .header-container h1 {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+
+      .club-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        width: 90%;
+        max-width: 1200px;
+        padding: 20px;
+        margin-top: 40px;
+      }
+
+      /* Club card styling */
+      .club-card {
+        border-radius: 15px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .club-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      }
+
+      .club-card h2 {
+        font-size: 1.5rem;
+        color: white;
+        margin: 10px 0;
+      }
+
+      .club-card p {
+        font-size: 0.9rem;
+        color: #cce0ff;
+      }
+
+      .club-card img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        object-fit: cover;
+      }
+
+      /* Specific colors for each club */
+      .club-card.music {
+        background-color: #3a5a40; /* Green for Music Club */
+      }
+
+      .club-card.acting {
+        background-color: #ff6f61; /* Coral for Acting Club */
+      }
+
+      .club-card.coding {
+        background-color: #007bff; /* Blue for Coding Club */
+      }
+
+      .club-card.robotics {
+        background-color: #8e44ad; /* Purple for Robotics Club */
+      }
+
+      .club-card.literature {
+        background-color: #e74c3c; /* Red for Literature Club */
+      }
+
+      .club-card.sports {
+        background-color: #16a085; /* Teal for Sports Club */
+      }
+
+      .club-card.photography {
+        background-color: #f39c12; /* Orange for Photography Club */
+      }
+
+      .club-card.debate {
+        background-color: #2980b9; /* Blue for Debate Club */
+      }
+
+      /* "Click to Join" Button Styling */
+      .join-club-btn {
+        margin-top: 20px;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        background-color: #0077e8;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .join-club-btn:hover {
+        background-color: #0055a5;
+      }
+
+      @media (max-width: 768px) {
+        .club-grid {
+          grid-template-columns: repeat(
+            2,
+            1fr
+          );
+        }
+
+        .header-container h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header-container">
+      <h1>MIT WPU UNIVERSITY CLUBS</h1>
+      <div class="club-grid">
+        <!-- Club Cards -->
+        <div
+          class="club-card music"
+          onclick="window.location.href='music-club.html'"
+        >
+          <img src="music.jpg" alt="Music Club" />
+          <h2>Music Club</h2>
+          <p>Explore your passion for music, from instruments to vocals.</p>
+        </div>
+
+        <div
+          class="club-card acting"
+          onclick="window.location.href='acting-club.html'"
+        >
+          <img src="acting.jpg" alt="Acting Club" />
+          <h2>Acting Club</h2>
+          <p>Showcase your acting skills and stage presence.</p>
+        </div>
+
+        <div
+          class="club-card coding"
+          onclick="window.location.href='coding-club.html'"
+        >
+          <img src="coding.jpg" alt="Coding Club" />
+          <h2>Coding Club</h2>
+          <p>Join coding events and build amazing projects.</p>
+        </div>
+
+        <div
+          class="club-card robotics"
+          onclick="window.location.href='robotics-club.html'"
+        >
+          <img src="robotics.jpg" alt="Robotics Club" />
+          <h2>Robotics Club</h2>
+          <p>Delve into the world of robotics and innovation.</p>
+        </div>
+
+        <div
+          class="club-card literature"
+          onclick="window.location.href='literature-club.html'"
+        >
+          <img src="literature.jpg" alt="Literature Club" />
+          <h2>Literature Club</h2>
+          <p>Discuss books, write, and share your literary passion.</p>
+        </div>
+
+        <div
+          class="club-card sports"
+          onclick="window.location.href='sports-club.html'"
+        >
+          <img src="sports.jpg" alt="Sports Club" />
+          <h2>Sports Club</h2>
+          <p>Engage in sports activities and stay fit.</p>
+        </div>
+
+        <div
+          class="club-card photography"
+          onclick="window.location.href='photography-club.html'"
+        >
+          <img src="photography.jpg" alt="Photography Club" />
+          <h2>Photography Club</h2>
+          <p>Capture moments and hone your photography skills.</p>
+        </div>
+
+        <div
+          class="club-card debate"
+          onclick="window.location.href='debate-club.html'"
+        >
+          <img src="debate.jpg" alt="Debate Club" />
+          <h2>Debate Club</h2>
+          <p>Engage in debates and improve your speaking skills.</p>
+        </div>
+      </div>
+
+      <!-- Join a Club Button -->
+      <button class="join-club-btn" onclick="window.location.href='form.html'">
+        Click to Join a Club
+      </button>
+    </div>
+  </body>
+</html>

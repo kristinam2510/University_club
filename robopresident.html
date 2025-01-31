@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics Club - MIT WPU University</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .section {
+            margin: 20px 0;
+        }
+
+        .section-header {
+            cursor: pointer;
+            background-color: #0055a5; /* Button background color */
+            color: white; /* Text color */
+            font-size: 1.5em;
+            padding: 15px; /* Add padding for a button effect */
+            text-align: center;
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s;
+        }
+
+        .section-header:hover {
+            background-color: #0077e8; /* Darker blue on hover */
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 10px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Hidden by default */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0055a5;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0077e8;
+        }
+
+        /* Additional styling for spacing */
+        .spacer {
+            margin-bottom: 10px; /* Space between elements */
+        }
+    </style>
+</head>
+<body>
+    <h1>Robotics Club</h1>
+
+    <!-- Recruitment Form Section -->
+    <div class="section">
+        <div class="section-header" onclick="toggleVisibility('recruitmentFormContainer')">Recruitment Form</div>
+        <div id="recruitmentFormContainer" class="form-container">
+            <form id="recruitmentForm" action="{{ url_for('robotics.submit_robotics_recruitment') }}" method="POST">
+                <label for="name">Student Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="prn">PRN:</label>
+                <input type="text" id="prn" name="prn" required>
+
+                <label for="department">Department:</label>
+                <input type="text" id="department" name="department" required>
+
+                <label for="year">Year:</label>
+                <input type="text" id="year" name="year" required>
+
+                <label for="date_of_joining">Date of Joining:</label>
+                <input type="date" id="date_of_joining" name="date_of_joining" required>
+
+                <label for="position">Position:</label>
+                <input type="text" id="position" name="position" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phoneno">Phone Number:</label>
+                <input type="tel" id="phoneno" name="phoneno" required>
+
+                <button type="submit">Submit</button>
+                <div id="error-message" class="error"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Budget Management Section -->
+    <div class="section">
+        <div class="section-header" onclick="toggleVisibility('budgetFormContainer')">Budget Management</div>
+        <div id="budgetFormContainer" class="form-container">
+            <form id="budgetForm" action="{{ url_for('robotics.submit_robotics_budget') }}" method="POST">
+                <label for="amount">Amount Spent:</label>
+                <input type="number" id="amount" name="amount" required>
+
+                <label for="spent_on">Spent On:</label>
+                <input type="text" id="spent_on" name="spent_on" required>
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="activity">Activity:</label>
+                <input type="text" id="activity" name="activity" required>
+
+                <button type="submit">Submit Budget</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Activity Management Section -->
+    <div class="section">
+        <div class="section-header" onclick="toggleVisibility('activityFormContainer')">Activity Management</div>
+        <div id="activityFormContainer" class="form-container">
+            <form id="activityForm" action="{{ url_for('robotics.submit_robotics_activity') }}" method="POST">
+                <label for="activity_name">Activity Name:</label>
+                <input type="text" id="activity_name" name="activity_name" required>
+
+                <label for="student_name">Student Name:</label>
+                <input type="text" id="student_name" name="student_name" required>
+
+                <label for="student_prn">PRN:</label>
+                <input type="text" id="student_prn" name="student_prn" required>
+
+                <label for="hours">Number of Hours:</label>
+                <input type="number" id="hours" name="hours" required>
+
+                <label for="student_position">Position:</label>
+                <input type="text" id="student_position" name="student_position" required>
+
+               
+                <label for="Club_ID">Club ID:</label>
+                <input type="number" id="Club_ID" name="Club_ID" required>
+
+                <label for="activity_completion">Activity completion:</label>
+                <select id="activity_completion" name="activity_completion" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option> 
+                </select>
+
+                
+                <div class="spacer"></div> <!-- Spacer added here -->
+
+                <label for="start_date">Start Date:</label>
+                <input type="date" id="start_date" name="start_date" required>
+
+                <label for="end_date">End Date:</label>
+                <input type="date" id="end_date" name="end_date" required>
+                
+                <div class="spacer"></div> <!-- Spacer added here -->
+
+                <button type="submit">Submit Activity</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Competition Management Section -->
+    <div class="section">
+        <div class="section-header" onclick="toggleVisibility('competitionFormContainer')">Competition Management</div>
+        <div id="competitionFormContainer" class="form-container">
+            <form id="competitionForm" action="{{ url_for('robotics.submit_robotics_competition') }}" method="POST">
+                <label for="competition_level">Competition Level:</label>
+                <select id="competition_level" name="competition_level" required>
+                    <option value="college">College Level</option>
+                    <option value="intercollege">Intercollege</option>
+                </select>
+                <div class="spacer"></div> <!-- Spacer added here -->
+
+                <label for="competition_date">Competition Date:</label>
+                <input type="date" id="competition_date" name="competition_date" required>
+
+                <div class="spacer"></div> <!-- Spacer added here -->
+
+                <label for="result">Result:</label>
+                <select id="result" name="result" required>
+                    <option value="won">Won</option>
+                    <option value="lost">Lost</option>
+                </select>
+
+                <div class="spacer"></div> <!-- Spacer added here -->
+
+                <label for="students_participated">Number of Students Participated:</label>
+                <input type="number" id="students_participated" name="number_of_participants" required>
+
+                <button type="submit">Submit Competition</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleVisibility(containerId) {
+            const container = document.getElementById(containerId);
+            container.style.display = (container.style.display === "none" || container.style.display === "") ? "block" : "none";
+        }
+    </script>
+</body>
+</html>
